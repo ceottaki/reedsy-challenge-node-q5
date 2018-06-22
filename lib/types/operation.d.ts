@@ -1,4 +1,4 @@
-import { OperationStep } from './operation-step.model';
+import { OperationStep } from '../operation-step.model';
 
 /**
  * Defines properties and methods for an implementation of an operation that can be applied to a text.

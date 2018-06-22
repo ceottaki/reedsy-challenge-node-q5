@@ -1,24 +1,28 @@
 {
-    "name": "reedsy-challenge-node-q5",
-    "version": "0.0.1",
-    "description": "Answer to question 5 of the challenge described in https://github.com/reedsy/challenges/blob/master/node-fullstack.md",
-    "private": true,
-    "main": "dist/index.js",
-    "types": "dist/index.d.ts",
-    "scripts": {
-        "build": "tsc",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "keywords": [
-        "reedsy",
-        "challenge"
-    ],
-    "author": "Felipe Ceotto <felipe.ceotto@gmail.com>",
-    "license": "UNLICENSED",
-    "devDependencies": {
-        "@types/node": "10.3.4",
-        "ts-node": "6.1.2",
-        "tslint": "5.10.0",
-        "typescript": "2.9.2"
-    }
+  "name": "reedsy-challenge-node-q5",
+  "version": "0.0.1",
+  "description": "Answer to question 5 of the challenge described in https://github.com/reedsy/challenges/blob/master/node-fullstack.md",
+  "private": true,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jasmine-ts --config=./jasmine.json"
+  },
+  "keywords": [
+    "reedsy",
+    "challenge"
+  ],
+  "author": "Felipe Ceotto <felipe.ceotto@gmail.com>",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@types/jasmine": "^2.8.8",
+    "@types/node": "10.3.4",
+    "jasmine": "^3.1.0",
+    "jasmine-spec-reporter": "^4.2.1",
+    "jasmine-ts": "^0.2.1",
+    "ts-node": "6.1.2",
+    "tslint": "5.10.0",
+    "typescript": "2.9.2"
+  }
 }

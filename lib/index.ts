@@ -1,7 +1,7 @@
 import { isNullOrUndefined } from 'util';
 
-import { IOperation } from './index.d';
 import { OperationStep } from './operation-step.model';
+import { IOperation } from './types/operation';
 
 /**
  * Represents an operation that can be applied to a text.
@@ -74,11 +74,10 @@ export class Operation implements IOperation {
 
         operation.steps.forEach((step: OperationStep) => {
             const newStep = { ...step };
-            if (isNullOrUndefined(newStep.move)) {
-                newStep.move = 0;
+            if (!isNullOrUndefined(newStep.move)) {
+                newStep.move -= totalMoves;
             }
 
-            newStep.move -= totalMoves;
             this.steps.push(newStep);
         });
     }
@@ -100,7 +99,7 @@ export class Operation implements IOperation {
             text = text.substring(0, currentCaret) + text.substring(currentCaret + (step.delete ? step.delete : 0));
 
             // Performs the insert operation.
-            text = text.substring(0, currentCaret) + step.insert + text.substring(currentCaret);
+            text = text.substring(0, currentCaret) + (step.insert ? step.insert : '') + text.substring(currentCaret);
         });
 
         return text;
