@@ -64,7 +64,7 @@ describe('Operation', () => {
     });
 
     it('should insert and remove characters at the correct position with four steps', () => {
-        const op1 = new Operation([{ move: 3 }, { insert: 'FOO' }, { move: -2 }, { delete: 2 }]);
+        const op1 = new Operation([{ move: 3 }, { insert: 'FOO' }, { move: -5 }, { delete: 2 }]);
         const result = op1.apply('abcdefg');
         expect(result).toBe('aFOOdefg');
     });

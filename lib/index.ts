@@ -100,6 +100,9 @@ export class Operation implements IOperation {
 
             // Performs the insert operation.
             text = text.substring(0, currentCaret) + (step.insert ? step.insert : '') + text.substring(currentCaret);
+            if (step.insert) {
+                currentCaret += step.insert.length;
+            }
         });
 
         return text;
