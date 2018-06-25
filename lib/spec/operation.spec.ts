@@ -68,4 +68,13 @@ describe('Operation', () => {
         const result = op1.apply('abcdefg');
         expect(result).toBe('aFOOdefg');
     });
+
+    it('should combine two insert operations correctly, moving the caret forward with each insert', () => {
+        const op1 = new Operation([{ move: 1 }, { insert: 'FOO' }]);
+        const op2 = new Operation([{ move: 3 }, { insert: 'BAR' }]);
+
+        op1.combine(op2);
+        const result = op1.apply('abcdefg');
+        expect(result).toBe('aFOObcBARdefg');
+    });
 });
