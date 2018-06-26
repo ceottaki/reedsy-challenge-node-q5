@@ -1,7 +1,13 @@
-import { isNullOrUndefined } from 'util';
+import {
+    isNullOrUndefined
+} from 'util';
 
-import { OperationStep } from './operation-step.model';
-import { IOperation } from './types/operation';
+import {
+    OperationStep
+} from './operation-step.model';
+import {
+    IOperation
+} from './types/operation';
 
 /**
  * Represents an operation that can be applied to a text.
@@ -49,8 +55,11 @@ export class Operation implements IOperation {
             return op1;
         }
 
-        op1.combine(op2);
-        return op1;
+        const result = {
+            ...op1
+        };
+        result.combine(op2);
+        return result;
     }
 
     /**
@@ -73,7 +82,9 @@ export class Operation implements IOperation {
             .reduce((previous: number, current: number) => previous + current);
 
         operation.steps.forEach((step: OperationStep) => {
-            const newStep = { ...step };
+            const newStep = {
+                ...step
+            };
             if (!isNullOrUndefined(newStep.move)) {
                 newStep.move -= totalMoves;
             }
