@@ -55,10 +55,9 @@ export class Operation implements IOperation {
             return op1;
         }
 
-        const result = {
-            ...op1
-        };
+        const result = new Operation(new Array(...op1.steps));
         result.combine(op2);
+
         return result;
     }
 
